@@ -1,0 +1,64 @@
+{
+  "name": "satisfactory-companion",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "build:electron": "vite build && electron-builder",
+    "preview": "vite preview",
+    "lint": "oxlint",
+    "mock": "node scripts/mock-server.cjs",
+    "start": "npm run dev:electron"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.12.1",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.70.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-leaflet": "^5.0.0",
+    "ws": "^8.22.2",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "autoprefixer": "^10.6.2",
+    "concurrently": "^10.0.7",
+    "oxlint": "^1.90.0",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.6",
+    "vite-plugin-electron": "^1.2.0",
+    "vite-plugin-electron-renderer": "^1.0.0",
+    "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.satisfactory.companion",
+    "productName": "Satisfactory Companion",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

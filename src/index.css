@@ -1,0 +1,278 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0d0d0d;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1a1a1a;
+  --color-border-primary: #2a2a2a;
+  --color-border-secondary: #333333;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #6a6a6a;
+  --color-accent-primary: #00d4aa;
+  --color-accent-secondary: #0099cc;
+  --color-accent-warning: #ffb800;
+  --color-accent-danger: #ff4444;
+  --color-accent-info: #44aaff;
+}
+
+@layer base {
+  * {
+    @apply border-gray-700;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  html, body, #root {
+    @apply h-full w-full m-0 p-0;
+  }
+}
+
+@layer components {
+  .sidebar-btn {
+    @apply flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors rounded-lg;
+  }
+
+  .sidebar-btn.active {
+    @apply bg-gray-800 text-white border-l-2 border-emerald-400;
+  }
+
+  .stat-card {
+    @apply bg-gray-900 border border-gray-700 rounded-xl p-5 transition-all hover:border-gray-600;
+  }
+
+  .stat-value {
+    @apply text-3xl font-mono font-bold text-white;
+  }
+
+  .stat-label {
+    @apply text-sm text-gray-400 uppercase tracking-wider mt-1;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-medium rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 font-medium rounded-lg transition-colors border border-gray-600;
+  }
+
+  .btn-danger {
+    @apply px-4 py-2 bg-red-600 hover:bg-red-500 text-white font-medium rounded-lg transition-colors;
+  }
+
+  .input-field {
+    @apply w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400 transition-all;
+  }
+
+  .select-field {
+    @apply w-full px-3 py-2 bg-gray-900 border border-gray-700 rounded-lg text-white focus:border-emerald-400 focus:outline-none focus:ring-1 focus:ring-emerald-400 transition-all appearance-none;
+  }
+
+  .card {
+    @apply bg-gray-900 border border-gray-700 rounded-xl overflow-hidden;
+  }
+
+  .tab-panel {
+    @apply h-full w-full flex flex-col;
+  }
+
+  .log-entry {
+    @apply font-mono text-xs text-gray-300 px-2 py-1 border-b border-gray-800 hover:bg-gray-800 cursor-pointer transition-colors;
+  }
+
+  .log-entry.selected {
+    @apply bg-gray-800 text-emerald-300;
+  }
+
+  .log-entry-error {
+    @apply text-red-400;
+  }
+
+  .log-entry-warning {
+    @apply text-yellow-400;
+  }
+
+  .log-entry-info {
+    @apply text-blue-400;
+  }
+
+  .json-viewer {
+    @apply font-mono text-xs text-gray-200 bg-gray-950 p-4 rounded-lg overflow-auto max-h-96;
+  }
+
+  .json-key {
+    @apply text-yellow-300;
+  }
+
+  .json-string {
+    @apply text-green-300;
+  }
+
+  .json-number {
+    @apply text-blue-300;
+  }
+
+  .json-boolean {
+    @apply text-purple-300;
+  }
+
+  .json-null {
+    @apply text-gray-500 italic;
+  }
+
+  .power-gauge {
+    @apply h-4 bg-gray-800 rounded-full overflow-hidden;
+  }
+
+  .power-gauge-fill {
+    @apply h-full transition-all duration-500 ease-out;
+  }
+
+  .building-pin {
+    @apply w-6 h-6 rounded-full border-2 border-white shadow-lg flex items-center justify-center text-xs font-bold;
+  }
+
+  .resource-node {
+    @apply w-5 h-5 rounded-full border-2 border-white shadow-md;
+  }
+
+  .player-marker {
+    @apply w-8 h-8 rounded-full border-3 border-white shadow-xl bg-emerald-400 animate-pulse;
+  }
+
+  .todo-item {
+    @apply flex items-center gap-3 px-3 py-2 bg-gray-800/50 border border-gray-700 rounded-lg hover:border-gray-600 transition-colors;
+  }
+
+  .todo-item.completed {
+    @apply opacity-50;
+  }
+
+  .todo-item.completed .todo-text {
+    @apply line-through text-gray-500;
+  }
+
+  .progress-bar {
+    @apply h-2 bg-gray-800 rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-emerald-500 transition-all duration-300 ease-out;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #333 #1a1a1a;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .glass {
+    @apply bg-gray-900/80 backdrop-blur-sm border border-gray-700/50;
+  }
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  @apply bg-gray-900;
+}
+
+.leaflet-pane {
+  @apply text-white;
+}
+
+.leaflet-control-attribution {
+  @apply text-gray-500 text-xs;
+}
+
+/* React Flow overrides */
+.react-flow {
+  @apply bg-gray-950;
+}
+
+.react-flow__background {
+  @apply bg-gray-950;
+}
+
+.react-flow__grid {
+  stroke: #2a2a2a;
+}
+
+.react-flow__attribution {
+  @apply text-gray-500 text-xs;
+}
+
+.react-flow__handle {
+  @apply bg-gray-700 border-gray-600;
+}
+
+.react-flow__handle-connecting {
+  @apply bg-emerald-400;
+}
+
+.react-flow__edge-path {
+  stroke: #4a4a4a;
+  stroke-width: 2;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #00d4aa;
+  stroke-width: 3;
+}
+
+.react-flow__node {
+  @apply bg-gray-900 border-gray-700;
+}
+
+.react-flow__node-selected {
+  @apply border-emerald-400 shadow-[0_0_0_1px_rgb(0_212_170)];
+}
+
+.react-flow__controls {
+  @apply bg-gray-900 border-gray-700;
+}
+
+.react-flow__controls-button {
+  @apply bg-gray-800 hover:bg-gray-700 text-gray-200;
+}
+
+.react-flow__minimap {
+  @apply bg-gray-900 border-gray-700;
+}
+
+.react-flow__minimap-node {
+  @apply bg-gray-700;
+}
+
+.react-flow__minimap-node-selected {
+  @apply bg-emerald-400;
+}
+
+.react-flow__minimap-mask {
+  @apply bg-gray-950/80;
+}
