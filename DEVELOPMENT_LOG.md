@@ -67,4 +67,15 @@ npm run dev:electron # Terminal 2: Launch Electron app
 - Pushed to GitHub: https://github.com/Fraser437/Satisfactory-Comapnion.git
 - Branch: master
 
+### 2026-11-10 - MOD_INTEGRATION.md Created
+- Added comprehensive mod integration specification
+- Documented WebSocket protocol, event schemas, base message format
+- Detailed all 5 event types: PlayerTelemetry, PowerGridUpdate, BuildingConstructed, ResourceNodeFound, MilestoneCompleted
+- Included C++ mod implementation guide with Unreal Engine code examples
+- Added SML/Lua alternative example
+- Testing instructions with mock server
+- Integration checklist and troubleshooting guide
+- Security considerations and version compatibility table
+- Committed and pushed to GitHub
+
 <!-- Add entries below after each prompt -->
