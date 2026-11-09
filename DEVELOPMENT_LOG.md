@@ -60,4 +60,11 @@ npm run dev:electron # Terminal 2: Launch Electron app
 ---
 
 ## Future Changes Log
+
+### 2026-11-10 - Initial Commit & GitHub Push
+- Initialized git repository
+- Committed all project files (30 files, ~9785 lines)
+- Pushed to GitHub: https://github.com/Fraser437/Satisfactory-Comapnion.git
+- Branch: master
+
 <!-- Add entries below after each prompt -->
